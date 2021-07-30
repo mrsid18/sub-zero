@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/css/app.min.css">
-   
+   <script src="dist/js/app.js" defer></script>
     <title>Subzero Refrigerator Repair</title>
 </head>
 <body>
@@ -17,16 +17,20 @@
         <a href="#" class="nav-link">About</a>
         <a href="#" class="nav-link">Services</a>
         <a href="#" class="nav-link">Contact</a>
-        <a href="tel:+8582030250" class="nav-right btn-red mob-hide">(858) 203-0250</a>
+        <a href="tel:+8582030250" class="nav-right btn-red mob-hide call">(858) 203-0250</a>
         </div>
         <div class="sm-only">
-            <ul>
+            <div class="mob-header">
+                <a href="/">Subzero Refrigerator Repair</a>
+                <button style="background: none; border:none;" onclick="togglemenu()"><img src="dist/img/menu.svg" width="24px" alt="" srcset=""></button>
+            </div>
+            <ul class="mob-nav" id="mobile-menu">
                 <li><a href="#" class="nav-link">About</a></li>
-                <hr>
                 <li><a href="#" class="nav-link">Services</a></li>
-                <hr>
                 <li><a href="#" class="nav-link">Contact</a></li>
             </ul>
+        <a href="tel:+8582030250" class="contact-mobile">Get in touch with us: &nbsp;(858) 203-0250</a>
+        <div></div>
         </div>
     </nav>
 
@@ -67,7 +71,7 @@
             <div class="content">
                 <h2>Reliable
                     and geniune quality</h2>
-                <h4>✓ ​ Highly trained technicians to serve your family
+                <h4 class="tick">✓ ​ Highly trained technicians to serve your family
                 </h4>
                     <p>
                         We provide only the most experienced and highly trained technicians to service your appliances, which we believe, along with incomparable customer service, is the key to a successful relationship with our customers.​
