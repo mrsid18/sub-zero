@@ -87,12 +87,15 @@ body {
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.75;
 }
 
 ul {
   padding-inline-start: 0;
+  line-height: 1.75;
 }
+
+
 
 .tick {
   li {
@@ -253,7 +256,7 @@ footer > nav {
 
   .btn-white,
   .btn-red {
-    width: 15vh;
+    width: 18vh;
     text-align: center;
   }
 
@@ -271,7 +274,9 @@ footer > nav {
   }
 
   .container {
-    padding: 0 2rem !important;
+    padding-left: 1.5rem;
+    padding-right: 2rem;
+    margin: 0 auto;
   }
 
   .section {
