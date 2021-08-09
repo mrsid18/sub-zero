@@ -1,6 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
-$primary: #d9534f;
+//Colors From Figma Design - Simply change the primary color to one of the below colors
+$red: #e81c2b;
+$green: #09a24f;
+$blue: #459ee2;
+$beige: #c28645;
+$darkblue:#323c79;
+$crimson: #d9534f;
+
+//Gradients
+$peach: linear-gradient(90deg, #ff706b 0%, #ff8c68 100%);
+$purple: linear-gradient(90deg, #4b6dba 0%, #7459a3 100%);
+$navy: linear-gradient(90deg, #406788 0%, #2a4256 100%);
+$seablue: linear-gradient(90deg, #70b4bf 0%, #b8dae0 100%);
+$lightgreen: linear-gradient(90deg, #83c45a 0%, #a7d960 100%);
+
+//Primary (Main) Color Used in theme - change this color to change the accent(theme) color
+$primary: $red;
 
 //Breakpoints
 $sm: 576px;
@@ -40,23 +56,26 @@ $xxl: 1400px;
   }
 }
 
+//Common button styles
 @mixin btn($bg, $color) {
   padding: 0.7rem 0.9rem;
   border-radius: 5px;
-  border: 5px solid $bg;
+  border: 5px solid transparent;
   font-weight: 600;
   color: $color;
-  background-color: $bg;
+  background: $bg;
   text-decoration: none;
   white-space: nowrap;
 }
 
+//Common background properties
 @mixin bg {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+//helper function for display:flex
 %flex {
   display: flex;
   justify-content: center;
@@ -64,12 +83,13 @@ $xxl: 1400px;
   gap: 1rem;
 }
 
+//General classes used throughout the pages
 .flex {
   @extend %flex;
   flex-wrap: wrap;
 }
 
-.btn-red {
+.btn-primary {
   @include btn($primary, #fff);
   padding-top: 0;
 }
@@ -77,6 +97,40 @@ $xxl: 1400px;
 .btn-white {
   @include btn(#fff, #333333);
 }
+
+.btn-white.active {
+  border-bottom: 5px solid $primary;
+}
+
+.btn-rounded{
+  border-radius: 999999px;
+}
+
+//Page Navigation (ICON UP)
+.icon-up{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+//Page Navigation (ICON UP)
+.icon-left{
+  @extend %flex;
+  padding: 0.25rem 0.9rem;
+}
+
+
+.icon-up.active, .icon-left.active{
+  background: $primary;
+  border-color: $primary;
+  color: white;
+  img{
+    filter: invert(1);
+  }
+}
+
+
 
 body {
   font-family: "Lato";
@@ -121,7 +175,7 @@ ul {
   }
 }
 
-.btn-red::before,
+.btn-primary::before,
 .contact-mobile::before {
   content: "";
   display: inline-block;
@@ -130,13 +184,46 @@ ul {
   margin-right: 6px;
   position: relative;
   top: 7px;
-  background-image: url("../img/phone.svg");
+  background-image: url("../img/phone.png");
   @include bg;
 }
 
+// Header v3 styling
+.top-header{
+  background:$primary;
+  display: flex;
+  padding: 0.75rem 0;
+  div{
+    width: 100%;
+    display: flex;
+    color: white;
+  }
+  .nav-link{
+    color: white;
+    padding: 0 0.75rem;
+  }
+  .active{
+    color: white!important;
+  }
+  .nav-link:first-child{
+    padding-left: 0;
+  }
+
+  a{
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.menu.py-6{
+  padding: 1.75rem;
+}
+// Header v3 styling ends
+
+
 nav {
-  background-color: #f8f8f8;
-  .container {
+  background: #f8f8f8;
+  .menu {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,6 +244,11 @@ nav {
     color: #333333;
   }
 
+  .nav-link.active{
+    color: $primary;
+    font-weight: 700;
+  }
+
   ul {
     list-style-type: none;
     padding: 2rem;
@@ -167,6 +259,7 @@ nav {
     letter-spacing: 0.3px;
   }
 }
+
 
 #page-navigation {
   @extend %flex;
@@ -189,13 +282,10 @@ nav {
     font-weight: 400;
   }
 
-  .active {
-    border-bottom: 5px solid $primary;
-  }
 }
 
 .section {
-  background-color: #f8f8f8;
+  background: #f8f8f8;
   padding: 6rem 0;
   .container {
     display: grid;
@@ -240,7 +330,7 @@ nav {
     text-align: center;
   }
 
-  .btn-red {
+  .btn-primary {
     margin-top: 1.5rem;
   }
 
@@ -265,7 +355,7 @@ footer > nav {
   }
 
   .btn-white,
-  .btn-red {
+  .btn-primary {
     width: 40vw;
     text-align: center;
   }
@@ -308,7 +398,7 @@ footer > nav {
     padding: 0.5rem;
     text-decoration: none;
     color: white;
-    background-color: $primary;
+    background: $primary;
     text-align: center;
     font-weight: 600;
   }
@@ -324,7 +414,7 @@ footer > nav {
   #mobile-menu{
     display: none;
 
-    background-color: #333333;
+    background: #333333;
     padding:0.5rem 1.5rem;
     margin: 0;
     .nav-link{
